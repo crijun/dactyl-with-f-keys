@@ -23,23 +23,33 @@ The next step was to connect each row to one side of the microcontroller and all
 
 ![pro_micro_pinout](https://github.com/user-attachments/assets/0efcf84c-af2e-47da-9fc7-053093699865)
 
-I also soldered a mechanical micro switch to the pins GND and RST. This switch is later glued into a caveat of the case on the outside to re-program the microcontroller with just 2 clicks of this additional button.
+I also soldered a mechanical micro switch to the GND and RST pins. This switch is later secured into a recess on the outside of the case, allowing for easy reprogramming of the microcontroller with just two clicks of the button.
 
-I used the following pins: 
+The following pins were used for the project:
 
         "cols": ["D4", "C6", "D7", "E6", "B4", "B5"],
         "rows": ["F5", "F6", "F7", "B1", "B3", "B2", "B6"]
 
-The next step was to flash the keyboards. This can either be done with just usnig the hex files but will probably not work fully if wired a little bit different.
+The next step was to flash the firmware onto the keyboards. While flashing can be done directly using hex files, this approach may not work properly if the wiring differs slightly from the expected configuration.
 
-Therefore I activated the debug option into the keyboard (Tools - HID Console). This debug information can be read by QMK Toolbox. It outputs the x and y coordinate of each key. This can be used to configure the matrix in the keyboard.json file. After any changes in any configuration file the firmware has to be compiled and the microcontroller has to be re-flashed.
+To address this, I activated the debug option in the keyboard firmware (via Tools > HID Console). Debug information is then read by QMK Toolbox, which outputs the x and y coordinates of each key. This data can be used to adjust the key matrix in the keyboard.json file. After any changes to the configuration files, the firmware must be recompiled, and the microcontroller re-flashed.
 
-To test to keyboard, another tool is used from QMK Toolbox (Tool - Key Tester). If all keys are mapped correctly, you can build your own keyboard mappings. 
+To test the keyboard, I used the Key Tester tool in QMK Toolbox (Tools > Key Tester). Once all keys are mapped correctly, custom keyboard mappings can be created.
 
-For this, I created an excel spreadsheet. This will also be used to create some c code later. 
+I created an Excel spreadsheet to assist with this process, which will later be used to generate C code. First, I entered all the keys on the left side and matched them to the corresponding keycodes on the right side. Because my key matrix is somewhat unconventional, the keycodes do not always align perfectly with those shown on the left. This is intentional, as wiring them differently could result in incorrect key mappings. It’s up to the user to either wire them correctly or adjust their matrix accordingly.
 
+Once the key mappings are finalized, the following segment is copied:
 
+![image](https://github.com/user-attachments/assets/9c070e7e-3258-4409-a61b-cd1b9cd71f92)
 
+This is then pasted into Notepad++ for some formatting adjustments:
+
+Replace \t with ,
+Replace \r\n with ,\r\n
+Remove any duplicate commas
+I created a macro in Notepad++ to automate this process, so it takes just one click to convert the data. After that, the formatted data is copied into the keymap.c array.
+
+Finally, compile the firmware, re-flash the microcontroller, and adjust the layout until you are satisfied with the result.
 
 ![signal-2024-09-17-175458_004](https://github.com/user-attachments/assets/a2afb7a9-cb3f-4824-9367-434ddf78ab4d)
 

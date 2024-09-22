@@ -10,6 +10,10 @@ To simplify the process for others, I will upload the necessary files.
  
  ![signal-2024-09-17-175458_006](https://github.com/user-attachments/assets/9249fedb-abbc-4d97-89d9-916171a78a00)
 
+For this project, I used 1N4148 diodes. The next step in the process involves considerable finishing work, including sanding the Dactyl case and installing the mechanical switches. Once the switches are in place, I soldered all the columns using a thicker wire. The choice of thick wire was intentional, as some switches were slightly loose and could easily pop out. This issue likely arose due to minor imperfections in my 3D print and excessive sanding during finishing.
+
+The columns are wired in parallel using the thick wire, while the rows are wired in parallel with diodes connected to each mechanical switch arm.
+
 ![signal-2024-09-18-161415_00bbbbb3](https://github.com/user-attachments/assets/7e662779-24f8-4858-b7f0-814b07872dc5)
 ![signal-2024-09-18-161415_002aaaaa](https://github.com/user-attachments/assets/99649dbb-5fcc-41eb-84f5-9de79a145ab0)
 
